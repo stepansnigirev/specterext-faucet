@@ -17,7 +17,7 @@ class FaucetService(Service):
     desc = "Control your regtest node."
     has_blueprint = True
     blueprint_module = "embeed.specterext.faucet.controller"
-    devstatus = devstatus_prod
+    devstatus = devstatus_beta
     isolated_client = True
 
     # TODO: As more Services are integrated, we'll want more robust categorization and sorting logic
