@@ -7,21 +7,22 @@ from cryptoadvance.specter.config import ProductionConfig as SpecterProductionCo
 
 class BaseConfig:
     ''' This is a extension-based Config which is used as Base '''
-    FAUCET_SOMEKEY = "some value"
+    # FAUCET_SOMEKEY = "some value"
 
 class ProductionConfig(BaseConfig):
     ''' This is a extension-based Config for Production '''
     pass
 
 
-class AppProductionConfig(SpecterProductionConfig):
+class AppProductionConfig(BaseConfig):
     ''' The AppProductionConfig class can be used to user this extension as application
     '''
-    # Where should the User endup if he hits the root of that domain?
-    ROOT_URL_REDIRECT = "/spc/ext/faucet"
-    # I guess this is the only extension which should be available?
-    EXTENSION_LIST = [
-        "cryptoadvance.specterext.faucet.service"
-    ]
-    # You probably also want a different folder here
-    SPECTER_DATA_FOLDER=os.path.expanduser("~/.faucet")
+    pass
+    # # Where should the User endup if he hits the root of that domain?
+    # ROOT_URL_REDIRECT = "/spc/ext/faucet"
+    # # I guess this is the only extension which should be available?
+    # EXTENSION_LIST = [
+    #     "cryptoadvance.specterext.faucet.service"
+    # ]
+    # # You probably also want a different folder here
+    # SPECTER_DATA_FOLDER=os.path.expanduser("~/.faucet")
