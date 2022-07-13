@@ -21,7 +21,7 @@ class AppProductionConfig(SpecterProductionConfig):
     ROOT_URL_REDIRECT = "/spc/ext/faucet"
     # I guess this is the only extension which should be available?
     EXTENSION_LIST = [
-        "embeed.specterext.faucet.service"
+        "cryptoadvance.specterext.faucet.service"
     ]
     # You probably also want a different folder here
     SPECTER_DATA_FOLDER=os.path.expanduser("~/.faucet")

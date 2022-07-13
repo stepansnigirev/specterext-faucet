@@ -16,7 +16,7 @@ class FaucetService(Service):
     logo = "faucet/img/logo.png"
     desc = "Control your regtest node."
     has_blueprint = True
-    blueprint_module = "embeed.specterext.faucet.controller"
+    blueprint_module = "cryptoadvance.specterext.faucet.controller"
     devstatus = devstatus_beta
     isolated_client = True
 
