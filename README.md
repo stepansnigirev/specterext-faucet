@@ -7,6 +7,7 @@ Specter faucet extention for regtest - generate blocks and fund addresses withou
 ## Install with pypi
 
 ```
+python3 -m pip install cryptoadvance.specter
 python3 -m pip install specterext-faucet
 ```
 
