@@ -40,6 +40,12 @@ def index():
         w = app.specter.rpc.wallet()
         available = w.getbalances().get("mine", {}).get("trusted", 0)
         addr = w.getnewaddress()
+        # automatically bootstrap blockchain to 101 blocks
+        if available == 0:
+            blockcount = w.getblockcount()
+            if blockcount < 100:
+                w.generatetoaddress(101-blockcount, addr)
+                available = w.getbalances().get("mine", {}).get("trusted", 0)
         if request.method == "POST":
             action = request.form["action"]
             if action == "settings":
@@ -49,8 +55,9 @@ def index():
                 else:
                     user.remove_service(FaucetService.id)
             elif action == "generate":
-                w.generatetoaddress(1, addr)
-                flash("Block generated")
+                numblocks = int(request.form.get("numblocks", 1))
+                w.generatetoaddress(numblocks, addr)
+                flash(f"{numblocks} blocks generated")
             elif action == "fund":
                 amount = float(request.form["amount"])
                 fundaddr = request.form["address"]
